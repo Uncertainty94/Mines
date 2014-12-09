@@ -4,6 +4,7 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputAdapter;
+import ru.vsu.csf.minesweeper.model.model.Difficulty;
 import ru.vsu.csf.minesweeper.model.model.Field;
 import ru.vsu.csf.minesweeper.renderers.FieldRenderer;
 
@@ -11,9 +12,9 @@ public class FieldScreen extends AbstractScreen{
 
     FieldRenderer renderer;
 
-    public FieldScreen(Game game) {
+    public FieldScreen(Game game, int diff) {
         super(game);
-        renderer = new FieldRenderer(new Field(1));
+        renderer = new FieldRenderer(new Field(diff));
     }
 
     @Override
@@ -46,5 +47,9 @@ public class FieldScreen extends AbstractScreen{
         batch.begin();
         renderer.render(batch);
         batch.end();
+        if (renderer.isGoStartScreen()) {
+            game.setScreen(new StartScreen(game));
+            dispose();
+        }
     }
 }

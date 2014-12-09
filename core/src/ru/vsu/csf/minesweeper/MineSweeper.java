@@ -10,7 +10,7 @@ public class MineSweeper extends Game {
 
 	@Override
 	public void create () {
-	    setScreen(new FieldScreen(this));
+	    setScreen(new StartScreen(this));
 
     }
 
