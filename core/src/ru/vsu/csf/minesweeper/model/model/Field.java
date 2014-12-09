@@ -131,7 +131,7 @@ public class Field {
             }
 
         setMines(mineCount);
-        typeField();
+//        typeField();
 //        System.out.println("\n\n\n\n");
         setNumbers();
 //        typeField();
